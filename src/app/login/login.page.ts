@@ -20,7 +20,7 @@ export class LoginPage implements OnInit {
 
   login() {
     this.authService
-      .dummyLogin()
+      .facebookLogin()
       .then((res) => res && this.router.navigate(['tabs']));
   }
 }

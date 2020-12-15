@@ -14,14 +14,15 @@
     <ion-row>
       <ion-col size="3">
         <ion-avatar>
-          <img
+          <!-- <img
             src="https://ionicframework.com/docs/demos/api/list/avatar-han.png"
-          />
+          /> -->
+          <img [src]="authService.currentUser.avatar"/>
         </ion-avatar>
       </ion-col>
       <ion-col>
         <ion-label style="margin-top: 10px; display: block">
-          <h2>John Doe</h2>
+          <h2>{{authService.currentUser.name}}</h2>
           <h3>Sr. Software Engineer</h3>
         </ion-label>
       </ion-col>

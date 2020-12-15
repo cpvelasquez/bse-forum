@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
-import { Router } from '@angular/router';
+import { Router } from "@angular/router";
+import { AuthenticationService } from "../providers/auth.service";
 
 @Component({
   selector: "app-tab3",
@@ -8,9 +9,11 @@ import { Router } from '@angular/router';
 })
 export class Tab3Page {
   constructor(
-    private router: Router) {}
+    private router: Router,
+    public authService: AuthenticationService
+  ) {}
 
   viewSettings() {
-    this.router.navigate(['settings']);
+    this.router.navigate(["settings"]);
   }
 }

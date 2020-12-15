@@ -1,14 +1,19 @@
 import { Component, OnInit } from "@angular/core";
-import { ActionSheetController } from '@ionic/angular';
-import { Plugins } from '@capacitor/core';
-import { Router } from '@angular/router';
+import { ActionSheetController } from "@ionic/angular";
+import { Plugins } from "@capacitor/core";
+import { Router } from "@angular/router";
+import { AuthenticationService } from "../providers/auth.service";
 @Component({
   selector: "app-settings",
   templateUrl: "./settings.page.html",
   styleUrls: ["./settings.page.scss"],
 })
 export class SettingsPage implements OnInit {
-  constructor(private router: Router,private actionSheetController: ActionSheetController) {}
+  constructor(
+    private router: Router,
+    private actionSheetController: ActionSheetController,
+    private authService: AuthenticationService
+  ) {}
 
   ngOnInit() {}
 
@@ -16,9 +21,9 @@ export class SettingsPage implements OnInit {
   //   console.log("logging out");
   // }
   async logout(): Promise<void> {
-    await Plugins.FacebookLogin.logout();
-    console.log('Logging out !')
-    this.router.navigate(['login']);
+    this.authService.logout();
+    console.log("Logging out !");
+    this.router.navigate(["login"]);
   }
 
   async presentActionSheet() {
