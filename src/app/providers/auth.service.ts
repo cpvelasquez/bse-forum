@@ -114,7 +114,7 @@ export class AuthenticationService {
   logout(): Promise<void> {
     this.fireAuth.signOut();
     this.isAuthenticated.next(false);
-    return Storage.remove({ key: TOKEN_KEY });
+    return Storage.remove({ key: USER_KEY });
   }
 }
 
